@@ -22,10 +22,10 @@ def build_page(textarea_content):
 	header = "<h2>Web Caesar</h2>"
 
 	rot_label = "<label>Rotate by: </label>"
-	rotation_input = "<p><input type='number' name='rotation' /></p>"
+	rotation_input = "<p><input type='number' name='rotation' required/></p>"
 
 	message_label = "<label>Type a message: </label>"
-	textarea = "<p><textarea name='message'>" + textarea_content + "</textarea></p>"
+	textarea = "<p><textarea name='message' required>" + textarea_content + "</textarea></p>"
 
 	submit = "<input type='submit' />"
 
@@ -39,7 +39,7 @@ def build_page(textarea_content):
 class MainHandler(webapp2.RequestHandler):
     def get(self):
 
-		content = build_page("", "")
+		content = build_page("")
 		self.response.write(content)
 
     def post(self):
